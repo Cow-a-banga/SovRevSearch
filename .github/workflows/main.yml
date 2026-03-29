@@ -24,6 +24,10 @@ jobs:
         with:
           node-version: 20
 
+      - name: Fetch JSON
+        run: |
+          curl -L https://raw.githubusercontent.com/Cow-a-banga/SovRevData/refs/heads/master/data.json -o public/data.json
+
       - name: Install deps
         run: npm install
 
