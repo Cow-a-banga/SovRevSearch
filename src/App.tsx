@@ -9,7 +9,7 @@ function App() {
     const [query, setQuery] = useState("");
 
     useEffect(() => {
-        fetch("/index2.json")
+        fetch("./index2.json")
             .then((res) => res.json())
             .then(setStreams);
     }, []);
