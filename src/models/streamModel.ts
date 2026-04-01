@@ -11,6 +11,7 @@ export interface StreamModel {
     publishedAt: string;
     url: string;
     type: StreamType;
+    thumbnail: string;
 
     video: VideoModel[];
 }

@@ -44,7 +44,7 @@ export function StreamCard({ stream }: Props) {
             {/* Картинка */}
             <div style={{ width: "100%", height: 160, overflow: "hidden" }}>
                 <img
-                    src="https://randomfox.ca/images/93.jpg"
+                    src={stream.thumbnail}
                     alt="Stream thumbnail"
                     style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 8 }}
                 />
