@@ -12,9 +12,9 @@ function formatDateISO(dateStr: string) {
 
 function getTypeColor(type: string) {
     switch (type) {
-        case "video":
+        case "реакции":
             return "blue";
-        case "game":
+        case "игры":
             return "green";
         default:
             return "default";
@@ -28,8 +28,7 @@ export function StreamCard({ stream }: Props) {
             style={{
                 display: "flex",
                 flexDirection: "column",
-                height: "100%",
-                padding: 0, // убираем внутренний padding, он будет отдельно
+                padding: 0,
                 backgroundColor: "white",
                 borderRadius: 8,
                 boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
@@ -70,17 +69,28 @@ export function StreamCard({ stream }: Props) {
             {/* Видео реакции */}
             {stream.video.map((v, i) => (
                 <div key={i} style={{ fontSize: 13, lineHeight: 1.3, padding: "4px 0" }}>
-                    <Link
-                        href={v.url}
-                        target="_blank"
-                        style={{
-                            display: "block",
-                            width: "100%",
-                            textDecoration: "none"
-                        }}
-                    >
-                        {v.title}
-                    </Link>
+                    {v.url ? (
+                        <Link
+                            href={v.url}
+                            target="_blank"
+                            style={{
+                                display: "block",
+                                width: "100%",
+                                textDecoration: "none"
+                            }}
+                        >
+                            {v.title}
+                        </Link>
+                    ) : (
+                        <div
+                            style={{
+                                display: "block",
+                                width: "100%"
+                            }}
+                        >
+                            {v.title}
+                        </div>
+                    )}
                     <Text type="secondary" style={{ display: "block" }}>
                         {v.author}
                     </Text>

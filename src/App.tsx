@@ -11,6 +11,9 @@ function App() {
     useEffect(() => {
         fetch("./data.json")
             .then((res) => res.json())
+            .then((res: StreamModel[]) =>
+                res.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+            )
             .then(setStreams);
     }, []);
 
@@ -53,6 +56,7 @@ function App() {
                         display: "grid",
                         gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
                         gap: 24,
+                        alignItems: "start",
                     }}
                 >
                     {filteredStreams.map((s, i) => (
