@@ -59,8 +59,8 @@ function App() {
                         alignItems: "start",
                     }}
                 >
-                    {filteredStreams.map((s, i) => (
-                        <StreamCard key={i} stream={s} />
+                    {filteredStreams.map((s) => (
+                        <StreamCard key={s.url} stream={s} />
                     ))}
                 </div>
             </div>

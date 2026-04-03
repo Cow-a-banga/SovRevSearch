@@ -1,5 +1,6 @@
 ﻿import { Card, Tag, Typography } from "antd";
 import type { StreamModel } from "../models/streamModel.ts";
+import * as React from "react";
 
 const { Text, Link } = Typography;
 
@@ -21,7 +22,7 @@ function getTypeColor(type: string) {
     }
 }
 
-export function StreamCard({ stream }: Props) {
+export const StreamCard = React.memo(({ stream }: Props) => {
     return (
         <Card
             hoverable
@@ -101,4 +102,4 @@ export function StreamCard({ stream }: Props) {
             ))}
         </Card>
     );
-}
+});
