@@ -23,10 +23,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Fetch JSON
+      
+      - name: Checkout data repo
+        uses: actions/checkout@v4
+        with:
+          repository: Cow-a-banga/SovRevData
+          path: external-data
+      
+      - name: Copy data and images
         run: |
-          curl -L https://raw.githubusercontent.com/Cow-a-banga/SovRevData/refs/heads/master/data.json -o public/data.json
+          cp external-data/data.json public/data.json
+          cp -r external-data/images public/images
 
       - name: Install deps
         run: npm install
