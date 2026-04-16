@@ -41,16 +41,17 @@ export const StreamCard = React.memo(({ stream }: Props) => {
             onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.03)")}
             onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
         >
-            {/* Картинка */}
+
             <div style={{ width: "100%", height: 160, overflow: "hidden" }}>
                 <img
                     src={stream.thumbnail}
-                    alt="Stream thumbnail"
+                    alt="Тут должна была быть картинка"
                     style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 8 }}
+                    loading="lazy"
+                    decoding="async"
                 />
             </div>
 
-            {/* Заголовок стрима */}
             <div style={{ marginTop: 12, marginBottom: 8 }}>
                 <Link href={stream.url} target="_blank" style={{ fontSize: 16, fontWeight: 500, display: "block", width: "100%", }}>
                     {stream.title}
@@ -62,12 +63,10 @@ export const StreamCard = React.memo(({ stream }: Props) => {
                 </div>
             </div>
 
-            {/* Тип стрима */}
             <Tag color={getTypeColor(stream.type)} style={{ marginBottom: 12, alignSelf: "flex-start" }}>
                 {stream.type}
             </Tag>
 
-            {/* Видео реакции */}
             {stream.video.map((v, i) => (
                 <div key={i} style={{ fontSize: 13, lineHeight: 1.3, padding: "4px 0" }}>
                     {v.url ? (
